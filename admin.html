@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eMMC Finder | Admin Console (admin.html)</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>:root{--bg-950:#020617;--bg-900:#0f172a;--bg-800:#1e293b;--border:#1e293b;--border-light:#334155;--text-main:#f8fafc;--text-muted:#94a3b8;--cyan:#22d3ee;--emerald:#34d399;--amber:#fbbf24;--rose:#fb7185}*{box-sizing:border-box;margin:0;padding:0}body{background-color:var(--bg-950);color:var(--text-main);flex-direction:column;min-height:100vh;font-family:Plus Jakarta Sans,-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.5;display:flex}.mono{font-family:JetBrains Mono,monospace}.header{z-index:40;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);background:#020617eb;position:sticky;top:0}.container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}.header-inner{justify-content:space-between;align-items:center;gap:16px;height:64px;display:flex}.brand{align-items:center;gap:10px;font-size:18px;font-weight:800;display:flex}.badge-admin{color:var(--amber);text-transform:uppercase;background:#fbbf2426;border:1px solid #fbbf2466;border-radius:6px;padding:2px 8px;font-size:10px;font-weight:700}.btn{cursor:pointer;border:1px solid #0000;border-radius:10px;justify-content:center;align-items:center;gap:8px;padding:9px 16px;font-size:12px;font-weight:700;text-decoration:none;transition:all .15s;display:inline-flex}.btn-primary{background:var(--cyan);color:#020617}.btn-primary:hover{background:#67e8f9}.btn-primary:disabled{opacity:.5;cursor:not-allowed}.card{background:var(--bg-900);border:1px solid var(--border);border-radius:16px;margin-bottom:20px;padding:20px}.tabs{background:var(--bg-900);border:1px solid var(--border);border-radius:12px;gap:8px;max-width:420px;margin-bottom:20px;padding:6px;display:flex}.tab-btn{cursor:pointer;color:var(--text-muted);background:0 0;border:none;border-radius:8px;flex:1;padding:10px 12px;font-size:12px;font-weight:700;transition:all .15s}.tab-btn.active{background:var(--cyan);color:#020617}textarea,input,select{background:var(--bg-950);border:1px solid var(--border-light);width:100%;color:var(--text-main);border-radius:10px;outline:none;padding:10px 12px;font-size:13px}textarea:focus,input:focus,select:focus{border-color:var(--cyan)}.grid-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;display:grid}.group-pills{flex-wrap:wrap;gap:8px;margin-top:8px;display:flex}.group-pill{border:1px solid var(--border-light);background:var(--bg-950);color:var(--text-muted);cursor:pointer;border-radius:8px;padding:8px 16px;font-size:12px;font-weight:700}.group-pill.active{border-color:var(--cyan);color:var(--cyan);background:#22d3ee2e}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;border-bottom:1px solid var(--border);padding:10px 12px}th{color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;background:#020617b3;font-size:11px}.notice{border-radius:12px;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px;padding:14px 16px;font-size:13px;font-weight:600;display:none}.notice.show{display:flex}.notice.success{color:#a7f3d0;background:#10b98126;border:1px solid #10b98173}.notice.warning{color:#fde68a;background:#fbbf2426;border:1px solid #fbbf2473}.sample-btn{background:var(--bg-950);border:1px solid var(--border-light);color:var(--cyan);cursor:pointer;border-radius:6px;padding:4px 10px;font-size:11px}.sample-btn:hover{background:var(--bg-800)}.recent-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px;display:grid}.ic-preview-card{background:var(--bg-950);border:1px solid #34d39973;border-radius:12px;padding:14px}.spec-3col{background:var(--bg-900);border:1px solid var(--border-light);text-align:center;border-radius:8px;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;padding:10px 6px;display:grid}.spec-label{text-transform:uppercase;color:var(--text-muted);font-size:10px;font-weight:700}.spec-val{margin-top:2px;font-size:15px;font-weight:800}</style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand mono">
+          <span style="color: var(--amber)">⚡</span>
+          <span>eMMC</span>
+          <span style="color: var(--amber)">Admin</span>
+          <span class="badge-admin">admin.html</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="/" class="btn btn-primary">← Back to Website</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-top: 24px; padding-bottom: 48px; flex: 1;">
+      <!-- Top Banner -->
+      <div class="card" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span class="badge-admin mono">ADMIN DATA ENTRY</span>
+          </div>
+          <h1 style="font-size: 18px; font-weight: 800;">Add & Manage eMMC / eMCP / uMCP Data</h1>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
+            Paste lines like <code class="mono" style="color: var(--cyan);">jz171 ram4 storage128 515A Micron</code> or enter one-by-one.
+          </p>
+        </div>
+      </div>
+
+      <!-- Status Notice -->
+      <div id="noticeBanner" class="notice">
+        <span id="noticeText"></span>
+        <button type="button" onclick="hideNotice()" style="background:transparent;border:none;color:inherit;cursor:pointer;font-weight:bold;">✕</button>
+      </div>
+
+      <!-- Custom Added ICs Box (Persists across page refreshes!) -->
+      <div id="recentlyAddedBox" class="card" style="display: none; border-color: rgba(52, 211, 153, 0.5);">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h3 style="font-size: 13px; font-weight: 800; color: var(--emerald); text-transform: uppercase;">
+            ✓ Custom Added ICs — Saved on Website (<span id="recentCount">0</span>)
+          </h3>
+          <a href="/" style="font-size: 12px; color: var(--cyan); font-weight: 700; text-decoration: none;">View on Website →</a>
+        </div>
+        <div id="recentCardsGrid" class="recent-grid"></div>
+      </div>
+
+      <!-- Entry Mode Sub-Tabs -->
+      <div class="tabs">
+        <button type="button" class="tab-btn active" id="tabBtnPaste" onclick="switchTab('paste')">📋 Auto-Parse Paste</button>
+        <button type="button" class="tab-btn" id="tabBtnManual" onclick="switchTab('manual')">➕ Single Manual Entry</button>
+      </div>
+
+      <!-- TAB 1: AUTO-PARSE PASTE -->
+      <div id="sectionPaste">
+        <div class="card">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <div>
+              <h2 style="font-size: 14px; font-weight: 700;">Copy & Paste Auto-Separator</h2>
+              <p style="font-size: 12px; color: var(--text-muted);">
+                Automatically extracts <strong>Part Number</strong>, <strong>Ram</strong>, <strong>Storage</strong>, and <strong>Group (515A / Micron / Samsung / SK Hynix)</strong>.
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 12px; color: var(--text-muted);">Default Group:</span>
+              <select id="defaultGroupSelect" style="width: auto; padding: 6px 10px;" onchange="reparseText()">
+                <option value="Micron">Micron</option>
+                <option value="Samsung">Samsung</option>
+                <option value="SK Hynix">SK Hynix</option>
+              </select>
+            </div>
+          </div>
+
+          <textarea id="pasteInput" rows="4" class="mono" style="color: var(--cyan);" oninput="reparseText()" placeholder="Paste your real chip codes here, one per line..."></textarea>
+        </div>
+
+        <div class="card" style="padding: 0; overflow: hidden;">
+          <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
+            <div>
+              <h3 style="font-size: 13px; font-weight: 700; text-transform: uppercase;">Auto-Parsed Breakdown (<span id="parsedCount">0</span> items ready)</h3>
+              <p style="font-size: 11px; color: var(--text-muted);">Verify or edit Ram, Storage, and Group below, then click Confirm & Save All.</p>
+            </div>
+            <button type="button" id="btnSaveBatch" class="btn btn-primary" onclick="saveParsedBatch()">💾 Confirm & Save All to Website</button>
+          </div>
+          <div style="overflow-x: auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Part Number</th>
+                  <th>Ram (GB)</th>
+                  <th>Storage (GB)</th>
+                  <th>Group (e.g. 515A)</th>
+                  <th>Manufacturer</th>
+                  <th>Package</th>
+                </tr>
+              </thead>
+              <tbody id="parsedTableBody" class="mono"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: SINGLE MANUAL ENTRY -->
+      <div id="sectionManual" style="display: none;">
+        <form class="card" onsubmit="saveSingleManual(event)">
+          <h2 style="font-size: 15px; font-weight: 700; margin-bottom: 4px;">Single Manual IC Entry</h2>
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 18px;">Enter Part Number, Ram, Storage, and Group code (e.g. 515A).</p>
+
+          <div class="grid-3" style="margin-bottom: 16px;">
+            <div>
+              <label style="font-size: 12px; font-weight: 700; display: block; margin-bottom: 6px;">Part Number / Code *</label>
+              <input type="text" id="singleMpn" required class="mono" style="color: var(--cyan); font-weight: 700; text-transform: uppercase;" placeholder="e.g. JZ171" />
+            </div>
+            <div>
+              <label style="font-size: 12px; font-weight: 700; display: block; margin-bottom: 6px;">Group Code (e.g. 515A)</label>
+              <input type="text" id="singleSuffix" class="mono" style="color: var(--amber); font-weight: 700; text-transform: uppercase;" placeholder="e.g. 515A" />
+            </div>
+            <div>
+              <label style="font-size: 12px; font-weight: 700; display: block; margin-bottom: 6px;">BGA Package</label>
+              <select id="singleBga" class="mono" style="color: var(--amber);">
+                <option value="BGA 254">BGA 254</option>
+                <option value="BGA 221">BGA 221</option>
+                <option value="BGA 153">BGA 153</option>
+                <option value="BGA 162">BGA 162</option>
+                <option value="BGA 95">BGA 95</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 18px;">
+            <label style="font-size: 12px; font-weight: 700; display: block;">Manufacturer Group (3 Primary Groups)</label>
+            <div class="group-pills" id="groupPillsContainer">
+              <button type="button" class="group-pill active" onclick="selectManualGroup('Micron', this)">Micron</button>
+              <button type="button" class="group-pill" onclick="selectManualGroup('Samsung', this)">Samsung</button>
+              <button type="button" class="group-pill" onclick="selectManualGroup('SK Hynix', this)">SK Hynix</button>
+              <button type="button" class="group-pill" onclick="selectManualGroup('Kingston', this)">Kingston</button>
+              <button type="button" class="group-pill" onclick="selectManualGroup('SanDisk / Kioxia', this)">SanDisk / Kioxia</button>
+            </div>
+          </div>
+
+          <div class="grid-3" style="margin-bottom: 20px;">
+            <div>
+              <label style="font-size: 12px; font-weight: 700; display: block; margin-bottom: 6px;">Ram (GB)</label>
+              <select id="singleRam" class="mono" style="color: var(--emerald); font-weight: 700;">
+                <option value="0">0 (No RAM)</option>
+                <option value="1">1 GB</option>
+                <option value="2">2 GB</option>
+                <option value="3">3 GB</option>
+                <option value="4" selected>4 GB</option>
+                <option value="6">6 GB</option>
+                <option value="8">8 GB</option>
+                <option value="12">12 GB</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size: 12px; font-weight: 700; display: block; margin-bottom: 6px;">Storage (GB)</label>
+              <select id="singleStorage" class="mono" style="color: #fff; font-weight: 700;">
+                <option value="8">8 GB</option>
+                <option value="16">16 GB</option>
+                <option value="32">32 GB</option>
+                <option value="64">64 GB</option>
+                <option value="128" selected>128 GB</option>
+                <option value="256">256 GB</option>
+                <option value="512">512 GB</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size: 12px; font-weight: 700; display: block; margin-bottom: 6px;">Category</label>
+              <select id="singleCategory">
+                <option value="eMCP">eMCP</option>
+                <option value="uMCP">uMCP</option>
+                <option value="eMMC">eMMC</option>
+                <option value="UFS">UFS</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end;">
+            <button type="submit" id="btnSaveSingle" class="btn btn-primary" style="padding: 12px 24px; font-size: 13px;">💾 Save IC to Website Database</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- ALWAYS VISIBLE SAVED DATABASE CATALOG -->
+      <div id="sectionManage" style="margin-top: 24px;">
+        <div class="card" style="padding: 0; overflow: hidden;">
+          <div style="padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h3 style="font-size: 13px; font-weight: 700; text-transform: uppercase;">All Saved ICs in Website Database (<span id="catalogCount">0</span>)</h3>
+              <p style="font-size: 11px; color: var(--text-muted);">Live catalog synced with the main website.</p>
+            </div>
+          </div>
+          <div style="overflow-x: auto; max-height: 540px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Part Number</th>
+                  <th>Ram</th>
+                  <th>Storage</th>
+                  <th>Group</th>
+                  <th>Manufacturer</th>
+                  <th>Package</th>
+                  <th style="text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="catalogTableBody" class="mono"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const LOCAL_STORAGE_KEY = 'emmc_finder_real_chips_v2';
+      const FIREBASE_DB_URL = 'https://emccc-d1acb-default-rtdb.asia-southeast1.firebasedatabase.app';
+      const API_BASE = window.location.protocol === 'file:'
+        ? 'https://ais-dev-tdauset55nigjf25zdcput-382038564877.asia-east1.run.app'
+        : '';
+
+      let selectedManualGroup = 'Micron';
+      let currentParsedItems = [];
+      let catalogChips = [];
+
+      try {
+        localStorage.removeItem('emmc_finder_custom_chips_v1');
+      } catch (e) {}
+
+      let bc = null;
+      try {
+        bc = new BroadcastChannel('emmc_finder_sync');
+        bc.onmessage = (ev) => {
+          if (ev.data && Array.isArray(ev.data.chips)) {
+            catalogChips = ev.data.chips;
+            renderCustomCards();
+            renderCatalog();
+          }
+        };
+      } catch (e) {}
+
+      async function loadInitialCatalog() {
+        // 1. Read localStorage first so custom chips render in 0ms on refresh
+        try {
+          const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed)) {
+              catalogChips = parsed;
+              renderCustomCards();
+              renderCatalog();
+            }
+          }
+        } catch (e) {}
+
+        // 2. Fetch server /api/chips as single source of truth
+        try {
+          const res = await fetch(`${API_BASE}/api/chips`, { cache: 'no-store' });
+          if (res.ok) {
+            const data = await res.json();
+            if (Array.isArray(data.chips)) {
+              catalogChips = data.chips;
+              try {
+                localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(catalogChips));
+              } catch (e) {}
+              renderCustomCards();
+              renderCatalog();
+              return;
+            }
+          }
+        } catch (e) {}
+
+        renderCustomCards();
+        renderCatalog();
+      }
+
+      async function persistNewChips(newChipsArray) {
+        // 1. Prepend to catalogChips and save to localStorage immediately
+        const incomingIds = new Set(newChipsArray.map(c => c.id));
+        catalogChips = [
+          ...newChipsArray,
+          ...catalogChips.filter(c => !incomingIds.has(c.id))
+        ];
+        try {
+          localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(catalogChips));
+        } catch (e) {}
+
+        renderCustomCards();
+        renderCatalog();
+
+        // 2. Save to Server /api/chips and wait for confirmation
+        try {
+          const res = await fetch(`${API_BASE}/api/chips`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chips: newChipsArray, userAction: true })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            if (Array.isArray(data.chips)) {
+              catalogChips = data.chips;
+              try {
+                localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(catalogChips));
+              } catch (e) {}
+            }
+          }
+        } catch (e) {}
+
+        // 3. Broadcast to any open tabs / frames
+        if (bc) {
+          try { bc.postMessage({ chips: catalogChips }); } catch (e) {}
+        }
+
+        // 4. Silent background sync to Firebase Realtime Database
+        const payload = {};
+        newChipsArray.forEach(c => { payload[c.id] = c; });
+        fetch(`${FIREBASE_DB_URL}/emmc_chips.json`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(() => {});
+
+        renderCustomCards();
+        renderCatalog();
+      }
+
+      function renderCustomCards() {
+        const box = document.getElementById('recentlyAddedBox');
+        const grid = document.getElementById('recentCardsGrid');
+        const countEl = document.getElementById('recentCount');
+        const customChips = catalogChips.filter(c => c && c.isCustom);
+
+        if (customChips.length === 0) {
+          box.style.display = 'none';
+          return;
+        }
+        box.style.display = 'block';
+        countEl.textContent = customChips.length;
+        grid.innerHTML = customChips.map(c => {
+          const grp = c.suffixCode || c.manufacturer;
+          return `
+            <div class="ic-preview-card mono">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="color: var(--cyan); font-weight: 800; font-size: 14px;">${c.partNumber}</span>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="color: var(--amber); font-size: 11px; font-weight: 700;">${c.bgaPackage}</span>
+                  <button type="button" onclick="deleteChip('${c.id}')" style="background:transparent;border:none;color:var(--rose);cursor:pointer;font-size:11px;font-weight:700;">✕</button>
+                </div>
+              </div>
+              <div class="spec-3col">
+                <div>
+                  <div class="spec-label">Ram</div>
+                  <div class="spec-val" style="color: var(--emerald);">${c.ramSizeGb}</div>
+                </div>
+                <div style="border-left: 1px solid var(--border-light); border-right: 1px solid var(--border-light);">
+                  <div class="spec-label">Storage</div>
+                  <div class="spec-val" style="color: #fff;">${c.romSizeGb}</div>
+                </div>
+                <div>
+                  <div class="spec-label">Group</div>
+                  <div class="spec-val" style="color: var(--amber);">${grp}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function showNotice(msg, type = 'success') {
+        const banner = document.getElementById('noticeBanner');
+        const text = document.getElementById('noticeText');
+        banner.className = 'notice show ' + type;
+        text.textContent = msg;
+      }
+
+      function hideNotice() {
+        document.getElementById('noticeBanner').className = 'notice';
+      }
+
+      function switchTab(tab) {
+        document.getElementById('sectionPaste').style.display = tab === 'paste' ? 'block' : 'none';
+        document.getElementById('sectionManual').style.display = tab === 'manual' ? 'block' : 'none';
+        document.getElementById('tabBtnPaste').className = 'tab-btn' + (tab === 'paste' ? ' active' : '');
+        document.getElementById('tabBtnManual').className = 'tab-btn' + (tab === 'manual' ? ' active' : '');
+      }
+
+      function selectManualGroup(group, btnEl) {
+        selectedManualGroup = group;
+        const buttons = document.querySelectorAll('#groupPillsContainer .group-pill');
+        buttons.forEach(b => b.classList.remove('active'));
+        btnEl.classList.add('active');
+      }
+
+      function fillSample(str) {
+        document.getElementById('pasteInput').value = str;
+        reparseText();
+      }
+
+      function parseLine(line, defaultGroup) {
+        let working = line.trim().replace(/[\t,;]+/g, ' ');
+        if (!working) return null;
+
+        let manufacturer = defaultGroup || 'Micron';
+        if (/samsung/i.test(working)) {
+          manufacturer = 'Samsung';
+          working = working.replace(/group:?\s*samsung/gi, ' ').replace(/samsung/gi, ' ');
+        } else if (/sk\s*hynix|hynix/i.test(working)) {
+          manufacturer = 'SK Hynix';
+          working = working.replace(/group:?\s*(sk\s*hynix|hynix)/gi, ' ').replace(/sk\s*hynix|hynix/gi, ' ');
+        } else if (/micron/i.test(working)) {
+          manufacturer = 'Micron';
+          working = working.replace(/group:?\s*micron/gi, ' ').replace(/micron/gi, ' ');
+        }
+
+        let suffixCode = '';
+        const explicitGroup = working.match(/\bgroup[:\s_-]+([A-Za-z0-9]{2,8})\b/i);
+        if (explicitGroup) {
+          suffixCode = explicitGroup[1].toUpperCase();
+          working = working.replace(explicitGroup[0], ' ');
+        }
+
+        let ramSizeGb = -1;
+        let romSizeGb = -1;
+
+        const slashMatch = working.match(/\b(\d{1,2})\s*\/\s*(\d{2,4})(?:gb|g)?\b/i);
+        if (slashMatch) {
+          ramSizeGb = parseInt(slashMatch[1], 10);
+          romSizeGb = parseInt(slashMatch[2], 10);
+          working = working.replace(slashMatch[0], ' ');
+        }
+
+        if (ramSizeGb < 0) {
+          const ramMatch = working.match(/\bram[:\s_-]*(\d+)(?:gb|g)?\b/i) || working.match(/\b(\d+)(?:gb|g)?\s*ram\b/i);
+          if (ramMatch) {
+            ramSizeGb = parseInt(ramMatch[1], 10);
+            working = working.replace(ramMatch[0], ' ');
+          }
+        }
+
+        if (romSizeGb < 0) {
+          const romMatch = working.match(/\b(?:storage|rom)[:\s_-]*(\d+)(?:gb|g)?\b/i) || working.match(/\b(16|32|64|128|256|512)(?:gb|g)\b/i);
+          if (romMatch) {
+            romSizeGb = parseInt(romMatch[1], 10);
+            working = working.replace(romMatch[0], ' ');
+          }
+        }
+
+        if (ramSizeGb < 0 || romSizeGb < 0) {
+          const nums = working.match(/\b(1|2|3|4|6|8|12|16|32|64|128|256|512)\b/g);
+          if (nums) {
+            for (const n of nums) {
+              const v = parseInt(n, 10);
+              if (ramSizeGb < 0 && [1, 2, 3, 4, 6, 8, 12].includes(v)) {
+                ramSizeGb = v;
+                working = working.replace(new RegExp('\\b' + n + '\\b'), ' ');
+              } else if (romSizeGb < 0 && [16, 32, 64, 128, 256, 512].includes(v)) {
+                romSizeGb = v;
+                working = working.replace(new RegExp('\\b' + n + '\\b'), ' ');
+              }
+            }
+          }
+        }
+
+        if (ramSizeGb < 0) ramSizeGb = 4;
+        if (romSizeGb < 0) romSizeGb = 128;
+
+        if (!suffixCode) {
+          const suffixMatch = working.match(/\b(\d{3}[a-zA-Z]|[a-zA-Z]\d{3}[a-zA-Z]?|\d{2,4}[A-Z]{1,2})\b/);
+          if (suffixMatch) {
+            suffixCode = suffixMatch[1].toUpperCase();
+            working = working.replace(suffixMatch[0], ' ');
+          }
+        }
+
+        const tokens = working.trim().split(/\s+/).filter(t => t && !/^(group|ram|storage|rom)$/i.test(t));
+        const partNumber = (tokens[0] || 'IC-NEW').toUpperCase();
+        if (!suffixCode && tokens[1]) suffixCode = tokens[1].toUpperCase();
+
+        const bgaPackage = (ramSizeGb <= 3 && romSizeGb <= 32) ? 'BGA 221' : 'BGA 254';
+
+        return {
+          partNumber,
+          ramSizeGb,
+          romSizeGb,
+          suffixCode: suffixCode || '',
+          manufacturer,
+          bgaPackage
+        };
+      }
+
+      function updateParsedField(idx, field, val) {
+        if (!currentParsedItems[idx]) return;
+        currentParsedItems[idx][field] = val;
+      }
+
+      function reparseText() {
+        const text = document.getElementById('pasteInput').value;
+        const defaultGroup = document.getElementById('defaultGroupSelect').value;
+        const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+        currentParsedItems = lines.map(l => parseLine(l, defaultGroup)).filter(Boolean);
+        document.getElementById('parsedCount').textContent = currentParsedItems.length;
+
+        const tbody = document.getElementById('parsedTableBody');
+        if (currentParsedItems.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:20px;">Paste any IC line in the box above (or click a sample button) to preview and save.</td></tr>';
+          return;
+        }
+        tbody.innerHTML = currentParsedItems.map((item, idx) => `
+          <tr>
+            <td>
+              <input type="text" value="${item.partNumber}" oninput="updateParsedField(${idx}, 'partNumber', this.value.toUpperCase())" style="color: var(--cyan); font-weight: 700; width: 140px; padding: 6px 8px;" />
+            </td>
+            <td>
+              <input type="number" value="${item.ramSizeGb}" oninput="updateParsedField(${idx}, 'ramSizeGb', Number(this.value))" style="color: var(--emerald); font-weight: 700; width: 80px; padding: 6px 8px;" />
+            </td>
+            <td>
+              <input type="number" value="${item.romSizeGb}" oninput="updateParsedField(${idx}, 'romSizeGb', Number(this.value))" style="color: #fff; font-weight: 700; width: 90px; padding: 6px 8px;" />
+            </td>
+            <td>
+              <input type="text" value="${item.suffixCode}" placeholder="515A" oninput="updateParsedField(${idx}, 'suffixCode', this.value.toUpperCase())" style="color: var(--amber); font-weight: 700; width: 100px; padding: 6px 8px;" />
+            </td>
+            <td>${item.manufacturer}</td>
+            <td style="color: var(--amber);">${item.bgaPackage}</td>
+          </tr>
+        `).join('');
+      }
+
+      async function saveParsedBatch() {
+        if (currentParsedItems.length === 0) {
+          showNotice('Please paste or type at least one IC line in the box above.', 'warning');
+          return;
+        }
+        const btn = document.getElementById('btnSaveBatch');
+        btn.disabled = true;
+        btn.textContent = 'Saving...';
+
+        const created = currentParsedItems.map(item => ({
+          id: 'chip-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6),
+          partNumber: item.partNumber,
+          laserMarking: item.partNumber,
+          suffixCode: item.suffixCode || '',
+          manufacturer: item.manufacturer,
+          category: 'eMCP',
+          bgaPackage: item.bgaPackage,
+          romSizeGb: Number(item.romSizeGb),
+          romStandard: 'eMMC 5.1',
+          ramSizeGb: Number(item.ramSizeGb),
+          ramType: item.bgaPackage === 'BGA 221' ? 'LPDDR3' : 'LPDDR4X',
+          ramBusWidth: 'Dual-channel 64-bit',
+          voltageVcc: '2.8V - 3.3V',
+          voltageVccq: '1.8V',
+          defaultCid: '',
+          jedecProductPnm: item.suffixCode || item.partNumber.slice(0, 6),
+          rpmbSizeKb: 16384,
+          dimensionsMm: '11.5 x 13.0 x 1.0 mm',
+          repairNotes: item.suffixCode ? ('Pattern / Suffix Code: ' + item.suffixCode) : '',
+          dateAdded: new Date().toISOString(),
+          isCustom: true
+        }));
+
+        await persistNewChips(created);
+        document.getElementById('pasteInput').value = '';
+        reparseText();
+        btn.disabled = false;
+        btn.textContent = '💾 Confirm & Save All to Website';
+        showNotice(`✓ Successfully saved ${created.length} IC(s) to Website Database!`, 'success');
+      }
+
+      async function saveSingleManual(e) {
+        e.preventDefault();
+        const mpn = document.getElementById('singleMpn').value.trim().toUpperCase();
+        if (!mpn) return;
+        const btn = document.getElementById('btnSaveSingle');
+        btn.disabled = true;
+        btn.textContent = 'Saving...';
+
+        const suffix = document.getElementById('singleSuffix').value.trim().toUpperCase();
+        const bga = document.getElementById('singleBga').value;
+        const ram = Number(document.getElementById('singleRam').value);
+        const storage = Number(document.getElementById('singleStorage').value);
+        const category = document.getElementById('singleCategory').value;
+
+        const newChip = {
+          id: 'chip-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6),
+          partNumber: mpn,
+          laserMarking: mpn,
+          suffixCode: suffix,
+          manufacturer: selectedManualGroup,
+          category,
+          bgaPackage: bga,
+          romSizeGb: storage,
+          romStandard: category === 'uMCP' ? 'UFS 2.2' : 'eMMC 5.1',
+          ramSizeGb: ram,
+          ramType: ram === 0 ? 'None' : (bga === 'BGA 221' ? 'LPDDR3' : 'LPDDR4X'),
+          ramBusWidth: ram > 0 ? 'Dual-channel 64-bit' : 'N/A',
+          voltageVcc: '2.8V - 3.3V',
+          voltageVccq: '1.8V',
+          defaultCid: '',
+          jedecProductPnm: suffix || mpn.slice(0, 6),
+          rpmbSizeKb: 16384,
+          dimensionsMm: '11.5 x 13.0 x 1.0 mm',
+          repairNotes: suffix ? ('Pattern / Suffix Code: ' + suffix) : '',
+          dateAdded: new Date().toISOString(),
+          isCustom: true
+        };
+
+        await persistNewChips([newChip]);
+        document.getElementById('singleMpn').value = '';
+        document.getElementById('singleSuffix').value = '';
+        btn.disabled = false;
+        btn.textContent = '💾 Save IC to Website Database';
+        showNotice(`✓ Successfully saved "${newChip.partNumber}" (Ram ${ram} / Storage ${storage} / Group ${suffix || selectedManualGroup}) to Website Database!`, 'success');
+      }
+
+      async function deleteChip(id) {
+        catalogChips = catalogChips.filter(c => c.id !== id);
+        try {
+          localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(catalogChips));
+        } catch (e) {}
+        renderCustomCards();
+        renderCatalog();
+
+        try {
+          await fetch(`${API_BASE}/api/chips/${encodeURIComponent(id)}`, { method: 'DELETE' });
+        } catch (e) {}
+        if (bc) {
+          try { bc.postMessage({ chips: catalogChips }); } catch (e) {}
+        }
+        showNotice('IC removed from database.', 'success');
+      }
+
+      function renderCatalog() {
+        document.getElementById('catalogCount').textContent = catalogChips.length;
+        const tbody = document.getElementById('catalogTableBody');
+        tbody.innerHTML = catalogChips.map(c => `
+          <tr>
+            <td style="color: var(--cyan); font-weight: 700;">
+              ${c.partNumber}
+              ${c.isCustom ? '<span style="margin-left:6px;padding:1px 6px;font-size:9px;background:rgba(16,185,129,0.2);color:var(--emerald);border:1px solid rgba(16,185,129,0.4);border-radius:4px;">ADDED</span>' : ''}
+            </td>
+            <td style="color: var(--emerald); font-weight: 700;">${c.ramSizeGb} GB</td>
+            <td style="color: #fff; font-weight: 700;">${c.romSizeGb} GB</td>
+            <td style="color: var(--amber); font-weight: 700;">${c.suffixCode || c.manufacturer}</td>
+            <td>${c.manufacturer}</td>
+            <td style="color: var(--amber);">${c.bgaPackage}</td>
+            <td style="text-align: right;">
+              <button type="button" onclick="deleteChip('${c.id}')" style="background:transparent;border:none;color:var(--rose);cursor:pointer;font-weight:700;">Delete</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      // Initialize
+      reparseText();
+      loadInitialCatalog();
+    </script>
+  </body>
+</html>
